@@ -23,8 +23,8 @@ A modern web interface for the Recraft AI Image Generation API. This application
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/recraft-ui.git
-cd recraft-ui
+git clone https://github.com/PierrunoYT/recraft-ui-client.git
+cd recraft-ui-client
 ```
 
 2. Install Python dependencies:
@@ -125,7 +125,7 @@ The application includes comprehensive error handling:
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. Copyright (c) 2024 PierrunoYT.
 
 ## Acknowledgments
 
