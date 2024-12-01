@@ -2,6 +2,8 @@
 
 A modern web interface for the Recraft AI Image Generation API. This application provides a user-friendly interface to interact with Recraft's powerful image generation and manipulation capabilities.
 
+![Recraft UI Screenshot](Images/Screenshot%202024-12-01%20at%2016-47-46%20Recraft%20Image%20Generator.png)
+
 ## Features
 
 - 🎨 Image Generation with customizable styles and sizes
