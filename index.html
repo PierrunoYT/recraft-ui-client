@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recraft Image Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Recraft Image Generator</h1>
+            <div class="api-key-section">
+                <input type="password" id="apiKey" placeholder="Enter your Recraft API key">
+                <button id="saveKey">Save Key</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="generate">Generate Image</button>
+                <button class="tab-btn" data-tab="vectorize">Vectorize</button>
+                <button class="tab-btn" data-tab="background">Remove Background</button>
+                <button class="tab-btn" data-tab="upscale">Upscale</button>
+            </div>
+
+            <div class="tab-content active" id="generate">
+                <div class="input-group">
+                    <textarea id="prompt" placeholder="Enter your image prompt here..."></textarea>
+                    <select id="model">
+                        <option value="recraftv3">RecraftV3 (Latest)</option>
+                        <option value="recraft20b">Recraft20B</option>
+                    </select>
+                    <select id="style">
+                        <option value="realistic_image">Realistic Image</option>
+                        <option value="digital_illustration">Digital Illustration</option>
+                        <option value="vector_illustration">Vector Illustration</option>
+                        <option value="icon">Icon</option>
+                    </select>
+                    <select id="substyle" class="hidden">
+                        <!-- Substyles will be populated via JavaScript -->
+                    </select>
+                    <select id="size">
+                        <option value="1024x1024">1024x1024</option>
+                        <option value="1365x1024">1365x1024</option>
+                        <option value="1024x1365">1024x1365</option>
+                        <option value="1536x1024">1536x1024</option>
+                        <option value="1024x1536">1024x1536</option>
+                        <option value="1820x1024">1820x1024</option>
+                        <option value="1024x1820">1024x1820</option>
+                        <option value="1024x2048">1024x2048</option>
+                        <option value="2048x1024">2048x1024</option>
+                        <option value="1434x1024">1434x1024</option>
+                        <option value="1024x1434">1024x1434</option>
+                        <option value="1024x1280">1024x1280</option>
+                        <option value="1280x1024">1280x1024</option>
+                        <option value="1024x1707">1024x1707</option>
+                        <option value="1707x1024">1707x1024</option>
+                    </select>
+                    <div class="color-controls">
+                        <div class="color-input">
+                            <label>Preferred Colors:</label>
+                            <input type="color" id="preferredColor">
+                            <button id="addColorBtn">Add Color</button>
+                        </div>
+                        <div id="selectedColors" class="selected-colors"></div>
+                        <div class="color-input">
+                            <label>Background Color:</label>
+                            <input type="color" id="backgroundColor">
+                        </div>
+                    </div>
+                    <button id="generateBtn">Generate Image</button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="vectorize">
+                <div class="input-group">
+                    <div class="file-upload">
+                        <input type="file" id="vectorizeFile" accept="image/png">
+                        <label for="vectorizeFile">Choose PNG File</label>
+                    </div>
+                    <button id="vectorizeBtn">Vectorize Image</button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="background">
+                <div class="input-group">
+                    <div class="file-upload">
+                        <input type="file" id="bgRemovalFile" accept="image/png">
+                        <label for="bgRemovalFile">Choose PNG File</label>
+                    </div>
+                    <button id="removeBackgroundBtn">Remove Background</button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="upscale">
+                <div class="input-group">
+                    <div class="file-upload">
+                        <input type="file" id="upscaleFile" accept="image/png">
+                        <label for="upscaleFile">Choose PNG File</label>
+                    </div>
+                    <select id="upscaleType">
+                        <option value="clarity">Clarity Upscale</option>
+                        <option value="generative">Generative Upscale</option>
+                    </select>
+                    <button id="upscaleBtn">Upscale Image</button>
+                </div>
+            </div>
+
+            <div class="result-container">
+                <div class="loading-spinner hidden"></div>
+                <div class="error-message hidden"></div>
+                <div class="result-image">
+                    <img id="resultImage" class="hidden" alt="Generated image">
+                </div>
+                <button id="downloadBtn" class="hidden">Download Image</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
